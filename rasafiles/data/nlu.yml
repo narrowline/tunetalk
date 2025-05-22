@@ -1,0 +1,537 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - Hi dude
+    - What's up?
+    - howdy
+    - hi there
+    - hi there dude
+    - hi there buddy
+    - hi there friend
+    - hello friend
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: greet_ask
+  examples: |
+    - Not bad what about you?
+    - I'm good, how are you?
+    - I'm sad and u?
+    - I'm fine wbu?
+    - Yo, feeling great, how’s it going with you?
+    - I’m super chill, what’s your vibe?
+    - Feeling kinda down, how about you?
+    - I’m pumped up, what’s up with you?
+    - Yo, I’m in a happy mood, how you doing?
+    - I’m feeling awesome, what’s your deal?
+    - Kinda bored today, how’s your day going?
+    - I’m all excited, how you holding up?
+    - Feeling a bit lonely, what’s your mood?
+    - I’m in a relaxed vibe, how bout you?
+    - Yo, I’m super energetic, what’s good with you?
+    - Feeling nostalgic, how’s your vibe?
+    - I’m pretty chill, what about you?
+    - I’m in a joyful mood, how’s it going?
+    - Kinda tired today, what’s up with you?
+    - I’m feeling motivated, how you doing?
+    - Yo, I’m in a party mood, what’s your deal?
+    - Feeling a bit sentimental, how bout you?
+    - I’m super upbeat, what’s good with you?
+    - I’m in a peaceful mood, how’s your day?
+    - Feeling a little anxious, what about you?
+    - I’m all vibing, how you holding up?
+    - Yo, I’m feeling lively, what’s your mood?
+    - I’m kinda melancholic, how’s it going?
+    - Feeling hopeful today, what’s up with you?
+    - I’m in a dreamy mood, how you doing?
+    - Yo, I’m super chilled, what’s your vibe?
+    - Feeling a bit reflective, how bout you?
+    - I’m in a blissful mood, what’s good with you?
+    - Kinda low today, how’s your day going?
+    - I’m feeling passionate, what about you?
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - OK bye
+    - bye for now
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - right
+    - yes please
+    - absolutely
+    - sure
+    - definitely
+    - let me find out
+    - I like this song
+    - This sounds perfect
+    - Yes, play this
+    - Sounds good to me
+    - No, I like this songs don't change
+    - Yes, I like this song
+    - These songs are good
+    - I guess these are good
+    - Yo, that’s the vibe!
+    - Totally, play it!
+    - Love this track!
+    - Hell yeah, keep it!
+    - That’s a banger, play it!
+    - Yup, this is it!
+    - Perfect choice, go for it!
+    - I’m vibing with this!
+    - Yeah, this hits right!
+    - Awesome, stick with this!
+    - This is fire, play it!
+    - Totally my jam!
+    - Yup, love this one!
+    - That’s spot on!
+    - Keep this song, it’s great!
+    - Yo, this is perfect!
+    - I’m feeling this track!
+    - Yes, this is the one!
+    - Sounds dope, let’s go!
+    - Absolutely, this works!
+    - Love these songs, keep ‘em!
+    - Yeah, that’s my mood!
+    - This playlist is lit!
+    - For sure, play this one!
+    - Yo, nailed it!
+    - That’s exactly what I wanted!
+    - I’m all in for this!
+    - Great pick, play it!
+    - Yeah, these are awesome!
+    - This is my kinda song!
+ 
+- intent: tell_song_req
+  examples: |
+    - Can you suggest songs for my [workout](activity)?
+    - I want to listen to [pop](music_type) music
+    - I want to listen something [lofi](music_type) for [studying](activity)
+    - Today feels [sad](mood), can you recommend a song?
+    - I need an [energetic](mood) song for [running](activity)
+    - I’m in a [relaxed](mood) mood, play something calm
+    - I love [romantic](music_type) songs, suggest me one
+    - Play something by [Atif Aslam](singer)
+    - Suggest a song in [English](language)
+    - Suggest a song in [Spanish](language)
+    - I want something [instrumental](music_type) for [studying](activity)
+    - Recommend a [classic](music_type) song for [driving](activity)
+    - Do you have any songs by [Taylor Swift](singer)?
+    - I prefer songs in [Hindi](language)
+    - Give me a [rock](music_type) track for [gym](activity)
+    - I’m feeling [happy](mood), what should I listen to?
+    - Please suggest something for a [party](activity)
+    - I enjoy [soft](music_type) music in [Urdu](language)
+    - Can you suggest me a [Diljit Dosanjh](singer) song new [romantic](music_type) songs
+    - I want to listen to something [devotional](music_type)
+    - I need a [dance](music_type) track for [traveling](activity)
+    - Suggest a [happy](mood) [Punjabi](language) song by [Guru Randhawa](singer)
+    - I’m feeling [nostalgic](mood), play a [retro](music_type) song
+    - Can you recommend a [jazz](music_type) track for [reading](activity)?
+    - I want a [soulful](music_type) song in [Urdu](language) for [relaxing](activity)
+    - Play a [vibrant](mood) song for my [dance practice](activity)
+    - Suggest something by [Arijit Singh](singer) for a [romantic](mood) evening
+    - I need a [classical](music_type) song in [Hindi](language) for [meditation](activity)
+    - Can you find a [pop](music_type) song by [Dua Lipa](singer) for [partying](activity)?
+    - I’m in a [calm](mood) mood, suggest an [acoustic](music_type) track
+    - Recommend a [folk](music_type) song in [Punjabi](language) for [traveling](activity)
+    - Play a [sad](mood) [ballad](music_type) by [Ed Sheeran](singer)
+    - I want an [upbeat](mood) [electronic](music_type) song for [cycling](activity)
+    - Suggest a [devotional](music_type) song in [Tamil](language) for [praying](activity)
+    - Can you recommend a [hip-hop](music_type) track for my [morning jog](activity)?
+    - I’m feeling [excited](mood), play a [dance](music_type) song in [English](language)
+    - Suggest a [romantic](music_type) song by [Shreya Ghoshal](singer) for [dinner](activity)
+    - I want a [soothing](mood) [instrumental](music_type) track for [yoga](activity)
+    - Play a [rock](music_type) song in [Spanish](language) for [road trip](activity)
+    - Recommend a [happy](mood) [pop](music_type) song by [BTS](singer)
+    - I need a [traditional](music_type) song in [Bengali](language) for [cultural event](activity)
+    - Suggest a [melancholic](mood) [sufi](music_type) song for [evening walk](activity)
+    - Can you play a [lively](mood) [bollywood](music_type) song for [wedding](activity)?
+    - I want a [chill](mood) [lo-fi](music_type) track for [studying](activity)
+    - Suggest me [spanish](language) songs for my [joging](activity)
+
+# LOOKUP TABLES
+
+- lookup: mood
+  examples: |
+    - sad
+    - happy
+    - relaxed
+    - energetic
+    - calm
+    - emotional
+    - romantic
+    - peaceful
+    - excited
+    - nostalgic
+    - cheerful
+    - melancholic
+    - upbeat
+    - inspired
+    - dreamy
+    - introspective
+    - joyful
+    - chilled
+    - motivated
+    - sentimental
+    - vibrant
+    - serene
+    - reflective
+    - lively
+    - somber
+    - blissful
+    - anxious
+    - hopeful
+    - passionate
+    - mellow
+    - contemplative
+    - adventurous
+    - soulful
+    - optimistic
+    - lonely
+
+- lookup: activity
+  examples: |
+    - workout
+    - studying
+    - running
+    - walking
+    - relaxing
+    - party
+    - driving
+    - traveling
+    - gym
+    - dancing
+    - yoga
+    - meditation
+    - cooking
+    - reading
+    - writing
+    - painting
+    - hiking
+    - cycling
+    - jogging
+    - wedding
+    - road trip
+    - evening walk
+    - morning walk
+    - chilling
+    - socializing
+    - gaming
+    - working
+    - commuting
+    - praying
+    - celebrating
+    - exercising
+    - cleaning
+    - shopping
+    - camping
+    - beach outing
+    - picnic
+    - date night
+    - family gathering
+    - cultural event
+
+- lookup: music_type
+  examples: |
+    - pop
+    - classic
+    - romantic
+    - soft
+    - lofi
+    - rock
+    - instrumental
+    - dance
+    - devotional
+    - hip hop
+    - rap
+    - trending
+    - bollywood
+    - hollywood
+    - sufi
+    - jazz
+    - acoustic
+    - folk
+    - electronic
+    - reggae
+    - ghazal
+    - qawwali
+    - bhangra
+    - indie
+    - classical
+    - rnb
+    - soul
+    - blues
+    - country
+    - metal
+    - edm
+    - retro
+    - fusion
+    - punjabi pop
+    - chillhop
+    - ambient
+    - kpop
+    - latin
+    - trap
+    - house
+    - techno
+    - folk rock
+    - alternative
+
+
+- lookup: singer
+  examples: |
+    - David Bowie
+    - Adele
+    - Taylor Swift
+    - Elton John
+    - The Weeknd
+    - Billie Eilish
+    - Ali Zafar
+    - Nusrat Fateh Ali Khan
+    - Freddie Mercury
+    - Amy Winehouse
+    - John Lennon
+    - Arijit Singh
+    - Shreya Ghoshal
+    - Diljit Dosanjh
+    - Guru Randhawa
+    - Atif Aslam
+    - Rahat Fateh Ali Khan
+    - Badshah
+    - Neha Kakkar
+    - Yo Yo Honey Singh
+    - Ed Sheeran
+    - Dua Lipa
+    - BTS
+    - Shakira
+    - Drake
+    - Ariana Grande
+    - Anuv Jain
+    - AP Dhillon
+    - Lata Mangeshkar
+    - Kishore Kumar
+    - A.R. Rahman
+    - Sabrina Carpenter
+
+- lookup: language
+  examples: |
+    - English
+    - Urdu
+    - Hindi
+    - Punjabi
+    - Tamil
+    - Italian
+    - Spanish
+    - Bengali
+    - Telugu
+    - Marathi
+    - Gujarati
+    - Kannada
+    - Malayalam
+    - Odia
+    - Assamese
+    - Bhojpuri
+    - Rajasthani
+    - Sindhi
+    - Pashto
+    - Arabic
+    - French
+    - Korean
+    - Japanese
+    - Portuguese
+    - Russian
+    - German
+    - Chinese
+    - Thai
+    - Persian
+    - Turkish
+    - Nepali
+    - Sinhala
+
+- intent: deny
+  examples: |
+    - no
+    - no thanks
+    - not interested
+    - never
+    - not really
+    - no way
+    - I don’t have anything in mind
+    - I don’t care, just play something
+    - I’m fine with anything
+    - I don't have specific requirements
+    - you decide
+    - choose yourself
+    - No find another song
+    - I don't like this song
+    - I don't like this song please change
+    - Ahhh i don't like this singer change please
+    - Euuuuu [john](singer) songs are cringe i don't like this
+    - [Sad](mood) songs are boring i don't like this
+    - This is not my type of song
+
+
+
+- intent: bot_challenge
+  examples: |
+    - What can you do?
+    - How can you help me?
+    - What are your features?
+    - Tell me what you do
+    - What kind of help do you offer?
+    - What's your name ?
+    - Are you a robot?
+    - Are you a human?
+    - Are you a chatbot?
+
+- intent: out_of_scope
+  examples: |
+    - I want pizza
+    - Tell me a joke
+    - What is 2+2?
+    - Who is Elon Musk?
+    - What is the weather like?
+    - What is the time?
+    - How many countries in the world?
+    - What is the capital of India?
+    - How to cook pasta?
+    - How is the richest man in the world?
+    - What is the meaning of life?
+    - What is the best programming language?
+    - What is the latest news?
+    - Do you have a girlfriend?
+    - What is your favorite color?
+    - What is your favourite singer?
+    - What is your favourite song?
+    - I love you
+    - I have a crush in you
+    - Yo, can you order me a burger?
+    - What’s the score of the cricket match?
+    - How do I get more TikTok followers?
+    - Is the moon made of cheese?
+    - Yo, what’s the best gaming console?
+    - Can you teach me to dance?
+    - What’s the price of Bitcoin today?
+    - How do I make a viral Instagram reel?
+    - Yo, are aliens real?
+    - What’s the tallest building in the world?
+    - Can you write a poem for me?
+    - Yo, how do I fix my Wi-Fi?
+    - What’s the best movie on Netflix?
+    - Do you know any magic tricks?
+    - How do I get abs in a week?
+    - Yo, what’s the fastest car ever?
+    - Can you predict my future?
+    - What’s the best coffee shop nearby?
+    - Yo, how do I learn guitar fast?
+    - Are you smarter than Siri?
+    - What’s the most popular meme right now?
+    - Yo, can you book me a flight?
+    - How do I become a YouTuber?
+    - What’s the biggest animal on Earth?
+    - Yo, do you play Among Us?
+    - Can you help me with my homework?
+    - What’s the best pizza topping?
+    - Yo, how do I go viral on Twitter?
+    - Are you a robot or a human?
+    - What’s the funniest video on YouTube?
+    - Yo, can you make me laugh?
+- intent: thanks
+  examples: |
+    - thank you i feel relax now
+    - thanks for the help
+    - i feel happy now thanks
+    - You are the best
+    - You save my to much time thanks
+    - I appreciate your recommendation
+    - Yo, thanks, this song’s perfect!
+    - Dude, you nailed it, thanks!
+    - Thanks a ton, I’m vibing now!
+    - You’re a lifesaver, thanks!
+    - Appreciate the tune, man!
+    - Yo, this track’s fire, thanks!
+    - Thanks for the banger!
+    - I’m feeling so chilled, thanks!
+    - You picked a gem, thank you!
+    - Bro, this is awesome, thanks!
+    - Thanks for the happy vibes!
+    - Yo, you’re the real MVP, thanks!
+    - Love this playlist, thank you!
+    - Thanks, I’m in a great mood now!
+    - You made my day, thanks!
+    - Yo, perfect song choice, thanks!
+    - Thanks for the upbeat track!
+    - Appreciate the suggestion, dude!
+    - Yo, this is exactly what I needed, thanks!
+    - Thanks, I’m totally relaxed now!
+    - You’re killing it, thank you!
+    - Thanks for the dope song!
+    - Yo, I’m loving this, thanks!
+    - Thanks, this hits the spot!
+    - You’re a legend, thanks!
+    - Yo, thanks for the sick tune!
+    - I’m so pumped now, thanks!
+    - Thanks for the awesome vibes!
+    - Yo, you saved the mood, thanks!
+    - Appreciate you, this song’s lit!
+- intent: chitchat
+  examples: |
+    - How old is Billie Eilish?
+    - What genre does Taylor Swift sing?
+    - Is Drake in a relationship?
+    - What's the latest album by BTS?
+    - Has Selena Gomez won any awards?
+    - Where is Ariana Grande from?
+    - Can you tell me about Eminem?
+    - Is Ed Sheeran married?
+    - How many Grammys does Beyoncé have?
+    - Who inspired The Weeknd's music?
+    - When is Dua Lipa's next concert?
+    - What's Post Malone's real name?
+    - Is Justin Bieber still making music?
+    - What's the net worth of Rihanna?
+    - What kind of music does BLACKPINK make?
+    - Does Billie Eilish have any pets?
+    - Tell me about Lady Gaga’s fashion style.
+    - What's the story behind Harry Styles’ tattoos?
+    - What was the first album of Selena Gomez?
+    - How tall is Shawn Mendes?
+    - Where was Adele born?
+    - What is Lizzo known for?
+    - When did Olivia Rodrigo start singing?
+    - Did Camila Cabello leave Fifth Harmony?
+    - What does Travis Scott usually rap about?
+    - Why is Sia always hiding her face?
+    - Is Bruno Mars performing live these days?
+    - What kind of music does Doja Cat make?
+    - Is Charlie Puth dating someone?
+    - What languages does Shakira sing in?
+

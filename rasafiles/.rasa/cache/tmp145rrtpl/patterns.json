@@ -1,0 +1,22 @@
+[
+  {
+    "name": "mood",
+    "pattern": "(\\bsad\\b|\\bhappy\\b|\\brelaxed\\b|\\benergetic\\b|\\bcalm\\b|\\bemotional\\b|\\bromantic\\b|\\bpeaceful\\b|\\bexcited\\b)"
+  },
+  {
+    "name": "activity",
+    "pattern": "(\\bworkout\\b|\\bstudying\\b|\\brunning\\b|\\bwalking\\b|\\brelaxing\\b|\\bparty\\b|\\bdriving\\b|\\btraveling\\b|\\bgym\\b)"
+  },
+  {
+    "name": "music_type",
+    "pattern": "(\\bpop\\b|\\bclassic\\b|\\bromantic\\b|\\bsoft\\b|\\blofi\\b|\\brock\\b|\\binstrumental\\b|\\bdance\\b|\\bdevotional\\b|\\bhip\\ hop\\b|\\brap\\b|\\btrending\\b|\\bbollywood\\b|\\bhollywood\\b)"
+  },
+  {
+    "name": "singer",
+    "pattern": "(\\bDavid\\ Bowie\\b|\\bAdele\\b|\\bTaylor\\ Swift\\b|\\bElton\\ John\\b|\\bThe\\ Weeknd\\b|\\bBillie\\ Eilish\\b|\\bAli\\ Zafar\\b|\\bNusrat\\ Fateh\\ Ali\\ Khan\\b|\\bFreddie\\ Mercury\\b|\\bAmy\\ Winehouse\\b|\\bJohn\\ Lennon\\b)"
+  },
+  {
+    "name": "language",
+    "pattern": "(\\bEnglish\\b|\\bUrdu\\b|\\bHindi\\b|\\bPunjabi\\b|\\bTamil\\b|\\bSpanish\\b)"
+  }
+]

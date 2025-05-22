@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RagaRiser - Music Chatbot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(160deg, #0f0c29, #302b63, #24243e);
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Scrollbar Styling */
+    #chatBox::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #chatBox::-webkit-scrollbar-thumb {
+      background: #e879f9;
+      border-radius: 4px;
+    }
+
+    /* Neon Glow */
+    .neon-text {
+      text-shadow: 0 0 10px #e879f9, 0 0 20px #f472b6, 0 0 40px #e879f9;
+    }
+
+    .neon-button {
+      box-shadow: 0 0 10px #f472b6, 0 0 20px #e879f9, 0 0 30px #e879f9;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 10px #f472b6; }
+      50% { transform: scale(1.05); box-shadow: 0 0 20px #e879f9; }
+    }
+
+    .neon-border {
+      border: 4px solid transparent;
+      border-image: linear-gradient(135deg, #f472b6, #8b5cf6, #06b6d4) 1;
+      animation: borderAnimation 4s linear infinite;
+    }
+
+    @keyframes borderAnimation {
+      0% {
+        border-image-source: linear-gradient(135deg, #f472b6, #8b5cf6, #06b6d4);
+      }
+      100% {
+        border-image-source: linear-gradient(495deg, #06b6d4, #8b5cf6, #f472b6);
+      }
+    }
+
+    input::placeholder {
+      color: #cbd5e1;
+      text-shadow: 0 0 5px #7dd3fc;
+    }
+
+    .singer-img {
+      width: 90px;
+      border-radius: 50px;
+      box-shadow: 0 0 25px #38bdf8;
+      animation: glowPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% {
+        box-shadow: 0 0 25px #38bdf8;
+      }
+      50% {
+        box-shadow: 0 0 35px #9333ea, 0 0 45px #e879f9;
+      }
+    }
+
+    .message {
+      padding: 0.75rem 1.25rem;
+      border-radius: 1rem;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+
+    .user-message {
+      background: linear-gradient(to right, #8b5cf6, #d946ef);
+      color: white;
+      box-shadow: 0 0 15px #d946ef;
+      align-self: flex-end;
+    }
+
+    .bot-message {
+      background: linear-gradient(to right, #06b6d4, #3b82f6);
+      color: white;
+      box-shadow: 0 0 15px #3b82f6;
+      align-self: flex-start;
+    }
+  </style>
+</head>
+<body class="text-white flex flex-col min-h-screen relative">
+
+  <!-- Left Singer -->
+  <!-- <div class="absolute top-1/2 left-3 transform -translate-y-1/2 z-10 hidden md:block">
+    <img src="https://wallpapers.com/images/hd/billie-eilish-jmnrb3mq3alp1o8f.jpg" alt="Billie Eilish" class="singer-img">
+          <button id="sendBtn" class="bg-pink-600 hover:bg-pink-500 px-6 py-3 rounded-xl font-bold text-white neon-button transition">
+          Chat now
+        </button>
+  
+  </div>
+
+  Right Singer 
+  <div class="absolute top-1/2 right-3 transform -translate-y-1/2 z-10 hidden md:block">
+    <img src="https://tse4.mm.bing.net/th?id=OIP.izpp6g3GgDQZLkAVldhTJAHaIp&pid=Api&P=0&h=220" alt="Shreya Ghoshal" class="singer-img">
+  </div>-->
+
+  <!-- Header -->
+  <header class="p-5 bg-gradient-to-r from-fuchsia-800 via-purple-700 to-indigo-800 text-center shadow-lg z-20">
+    <h1 class="text-4xl font-extrabold text-white neon-text tracking-wide">tUnetAlk AI 🎶</h1>
+    <p class="text-pink-200 text-sm mt-1">Your AI Music Companion</p>
+  </header>
+
+  <!-- Chat Area -->
+  <main class="flex-1 p-4 max-w-3xl w-full mx-auto z-20">
+    <div class="bg-gray-900 neon-border rounded-3xl shadow-2xl flex flex-col h-[70vh] overflow-hidden">
+
+      <!-- Chat Box -->
+      <div id="chatBox" class="flex-1 p-4 overflow-y-auto flex flex-col gap-4">
+        <!-- Messages will appear here -->
+      </div>
+
+      <!-- Input Area -->
+      <div class="bg-gray-800 p-4 flex gap-3 border-t border-gray-700">
+        <input id="userInput" type="text" placeholder="Type your music mood..." class="flex-1 p-3 rounded-xl bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-pink-400"/>
+        <button id="sendBtn" class="bg-pink-600 hover:bg-pink-500 px-6 py-3 rounded-xl font-bold text-white neon-button transition">
+          Send
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const sendBtn = document.getElementById('sendBtn');
+    const userInput = document.getElementById('userInput');
+    const chatBox = document.getElementById('chatBox');
+
+    sendBtn.addEventListener('click', sendMessage);
+    userInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+
+    function sendMessage() {
+      const message = userInput.value.trim();
+      if (!message) return;
+
+      const userMsg = document.createElement('div');
+      userMsg.className = 'message user-message self-end';
+      userMsg.textContent = message;
+      chatBox.appendChild(userMsg);
+
+      fetch("http://localhost:8001/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: message })
+      })
+      .then(res => res.json())
+      .then(data => {
+        const botMsg = document.createElement('div');
+        botMsg.className = 'message bot-message self-start';
+        botMsg.innerHTML = data.reply.replace(/\n/g, "<br>");
+        chatBox.appendChild(botMsg);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      });
+
+      userInput.value = '';
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  </script>
+</body>
+</html>

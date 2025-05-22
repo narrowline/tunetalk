@@ -1,0 +1,83 @@
+version: "3.1"
+
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- bot_challenge
+- tell_song_req
+- greet_ask
+- out_of_scope
+- thanks
+- chitchat
+entities:
+- music_type
+- singer
+- mood
+- activity
+- language
+slots:
+  mood:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: mood
+
+  activity:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: activity
+
+  music_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: music_type
+
+  singer:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: singer
+
+  language:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: language
+actions:
+  - action_suggest_song
+  - action_chitchat_music_related
+
+responses:
+  utter_greet:
+    - text: "Hey! How are you?"
+  utter_ask_recommendation:
+    - text: "Do you have specific song or type or singer name in mind or i suggest you for myself?"
+  utter_ask_irralvent:
+    - text: "Sorry, I can only help with music suggestions. Can you please rephrase your question?"
+  utter_greet_tell:
+    - text: "I'm good, thanks for asking! What kind of music you want to listen today?"
+  utter_default:
+    - text: "I'm sorry, I didn't quite understand that. Could you please rephrase?"
+  utter_goodbye:
+    - text: "Bye"
+  utter_iamabot:
+    - text: "I am a music suggestion bot, powered by AR."
+  utter_thanks:
+    - text: "You're welcome! If you have any more questions, feel free to ask."
+  utter_ask_song_review:
+    - text: "Do you like the song?"
+    - text: "This is song is ok or i suggest you another song?"
+    - text: "Have any issue with this song?"
+    - text: "Do you want to listen another song? or this songs is ok?"
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

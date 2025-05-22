@@ -1,0 +1,66 @@
+{
+  "type": "MaxHistoryTrackerFeaturizer",
+  "state_featurizer": {
+    "action_texts": [],
+    "entity_tag_specs": [],
+    "feature_states": {
+      "intent": {
+        "affirm": 0,
+        "back": 1,
+        "bot_challenge": 2,
+        "deny": 3,
+        "goodbye": 4,
+        "greet": 5,
+        "greet_ask": 6,
+        "nlu_fallback": 7,
+        "out_of_scope": 8,
+        "restart": 9,
+        "session_start": 10,
+        "tell_song_req": 11,
+        "thanks": 12
+      },
+      "action_name": {
+        "action_listen": 0,
+        "action_restart": 1,
+        "action_session_start": 2,
+        "action_default_fallback": 3,
+        "action_deactivate_loop": 4,
+        "action_revert_fallback_events": 5,
+        "action_default_ask_affirmation": 6,
+        "action_default_ask_rephrase": 7,
+        "action_two_stage_fallback": 8,
+        "action_unlikely_intent": 9,
+        "action_back": 10,
+        "...": 11,
+        "action_extract_slots": 12,
+        "action_suggest_song": 13,
+        "utter_ask_irralvent": 14,
+        "utter_ask_recommendation": 15,
+        "utter_ask_song_review": 16,
+        "utter_default": 17,
+        "utter_goodbye": 18,
+        "utter_greet": 19,
+        "utter_greet_tell": 20,
+        "utter_iamabot": 21,
+        "utter_thanks": 22
+      },
+      "entities": {
+        "activity": 0,
+        "language": 1,
+        "mood": 2,
+        "music_type": 3,
+        "singer": 4
+      },
+      "slots": {
+        "mood_0": 0,
+        "activity_0": 1,
+        "music_type_0": 2,
+        "singer_0": 3,
+        "language_0": 4
+      },
+      "active_loop": {}
+    }
+  },
+  "remove_duplicates": true,
+  "max_history": 5
+}

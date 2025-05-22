@@ -1,0 +1,16 @@
+fastapienv/
+rasavenv/
+langenv/
+
+# Aur saath hi ye bhi
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+.env
+*.env
+.cache/
+.DS_Store
+.ipynb_checkpoints/

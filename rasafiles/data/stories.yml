@@ -1,0 +1,94 @@
+version: "3.1"
+
+stories:
+
+- story: with slots
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: greet_ask
+  - action: utter_greet_tell
+  - intent: tell_song_req
+    entities:
+      - music_type: "Hip Hop"
+      - singer: "Eminem"
+      - mood: "happy"
+      - activity: "exercise"
+      - language: "english"
+  - slot_was_set:
+      - music_type: "Hip Hop"
+      - singer: "Eminem"
+      - mood: "happy"
+      - activity: "exercise"
+      - language: "english"      
+  - action: action_suggest_song
+  - checkpoint: suggested_songs
+
+
+- story: review deny
+  steps:
+  - checkpoint: suggested_songs
+  - intent: deny
+  - action: utter_ask_recommendation
+  - intent: tell_song_req
+    entities:
+      - music_type: "Hip Hop"
+      - singer: "Eminem"
+      - mood: "happy"
+      - activity: "exercise"
+      - language: "english"
+  - slot_was_set:
+      - music_type: "Hip Hop"
+      - singer: "Eminem"
+      - mood: "happy"
+      - activity: "exercise"
+      - language: "english"
+  - action: action_suggest_song
+  - intent: thanks
+  - action: utter_thanks
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: review affrim 
+  steps:
+  - checkpoint: suggested_songs
+  - intent: affirm
+  - action: utter_goodbye
+
+- story: with out slots
+  steps:
+
+  - checkpoint: suggested_songs
+  - intent: deny      
+  - action: action_suggest_song
+
+
+- story: thanks
+  steps:
+  - intent: thanks
+  - action: utter_thanks
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: bot challenge path
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: out of scope path
+  steps:
+  - intent: out_of_scope
+  - action: utter_default
+
+- story: chitchat path
+  steps:
+  - intent: chitchat
+  - action: action_chitchat_music_related
+
+
+
+
+
+
+

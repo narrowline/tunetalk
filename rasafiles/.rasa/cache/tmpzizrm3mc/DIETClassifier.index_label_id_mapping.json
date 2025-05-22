@@ -1,0 +1,11 @@
+{
+  "0": "affirm",
+  "1": "bot_challenge",
+  "2": "deny",
+  "3": "goodbye",
+  "4": "greet",
+  "5": "greet_ask",
+  "6": "out_of_scope",
+  "7": "tell_song_req",
+  "8": "thanks"
+}
